@@ -28,6 +28,10 @@ class TweetPooling < Sinatra::Base
 		schedule_tweet_tasks settings.pooling, settings.search
 	end
 
+	get '/tweets/topics' do
+		json :topics => settings.search[ :topics ]
+	end
+
 	get '/tweets/topics/:name' do
 
 		topic = params[ :name ]
