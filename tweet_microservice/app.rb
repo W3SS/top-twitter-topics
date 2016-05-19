@@ -36,11 +36,13 @@ class TweetPooling < Sinatra::Base
 			return json :error => 'Missing topic!'			
 		end
 
-		if not settings.search[ :topics ].include? topic
-			return json :error => 'Invalid topic! The valid topics are #{settings.search[ :topics ]}'
+		valid_topics = settings.search[ :topics ]
+
+		if not valid_topics.include? topic
+			return json :error => "Invalid topic! The valid topics are #{valid_topics.join("','")}'"
 		end
 
-		json :tweets => Tweet.order( 'updated_at desc' ).limit( settings.search[ :limit ] ).find_by( :topic => topic )
+		json :tweets => Tweet.order( 'updated_at desc' ).where( :topic => topic ).first( settings.search[ :limit ] )
 	end
 
 	# start the server if ruby file executed directly
