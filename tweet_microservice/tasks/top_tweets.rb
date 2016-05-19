@@ -16,17 +16,19 @@ class TopTwitterTask
 	end 
 
 	def execute( topics, limit )
-		tweets = Tweet.all
-		#tweets  = []
 
-		#topics.each do | topic |
-		#	@client.search( "##{topic}", :result_type => "recent" ).take( limit ).collect { | tweet |
-		#		tweets << Tweet.new( :id_str => tweet.id, :content => tweet.text ).save
-		#	}	
-		#end
+		topics.each do | topic |
+			@client.search( "##{topic}", :result_type => "recent" ).take( limit ).collect { | t |
+				tweet = Tweet.find_by :id_str => t.id
 
-		puts tweets
-		tweets
+				tweet = Tweet.new( :id_str => t.id, :content => t.text, :topic => topic ) if tweet.nil?
+				tweet.updated_at = Time.now
+
+				if not tweet.save()
+					puts "Something went wrong when saving or update the tweet #{tweet}"
+				end
+			}	
+		end
 	end
 
 end 
