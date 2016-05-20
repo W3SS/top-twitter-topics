@@ -1,5 +1,5 @@
 pooling:
-  frequency: 5m
+  frequency: 30s
   timeout: 1m
 search:
   topics: ['healthcare', 'nasa', 'open source']
