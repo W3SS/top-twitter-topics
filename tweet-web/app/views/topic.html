@@ -1,0 +1,10 @@
+<div class="jumbotron">
+	<h3>You're seeing the top {{ tweets.length }} tweets about {{ hashtag }}!</h3>
+	<div class="row">
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="tweet in tweets">
+				<p>{{ tweet.content }}</p>
+			</li>
+	  	</ul>
+	</div>
+</div>

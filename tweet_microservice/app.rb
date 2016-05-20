@@ -4,10 +4,12 @@ require "sinatra/json"
 require "sinatra/config_file"
 require 'rufus-scheduler'
 require "./tasks/top_tweets.rb"
+require 'sinatra/cross_origin'
 
 class TweetPooling < Sinatra::Base
 	register Sinatra::ConfigFile
 	register Sinatra::ActiveRecordExtension
+	register Sinatra::CrossOrigin
 
 	config_file './config/app.yml'
 
@@ -25,6 +27,7 @@ class TweetPooling < Sinatra::Base
 	end
 
 	configure do
+		enable :cross_origin
 		schedule_tweet_tasks settings.pooling, settings.search
 	end
 
