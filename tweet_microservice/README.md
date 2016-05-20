@@ -60,7 +60,13 @@ Before building, you will need to have installed in your machine the following t
   export TWITTER_TOKEN_SECRET="YOUR_ACCESS_SECRET"
   ```
 
-  Run `bundle exec rackup -p 4567` to run. This will start the application at [http://localhost:4567/](http://localhost:4567/)
+  Run `bundle exec rackup -p 4567` to run. This will start the application at http://localhost:4567/
+  
+  Go to the following URL [http://localhost:4567/tweets/topics](http://localhost:4567/tweets/topics). If you get the following response, then everything is working just fine:
+  
+  ```
+  {"topics":["healthcare","nasa","open source"]}
+  ```
   
   Note that the application will run on port 4567 and that the front-end application is expecting the host to be 127.0.0.1 and port 4567. If you change any of these, you will have to change at the front-end application the new host and port.
 
