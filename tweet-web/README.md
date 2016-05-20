@@ -41,7 +41,7 @@ Before building, you will need to have installed in your machine the following t
   bower install
   ```
   
-  Run `grunt` for building and `grunt serve` for run.
+  Run `grunt` for building and `grunt serve` to run. This will start the application at [http://localhost:9000/](http://localhost:9000/)
   
 ## Testing
 
