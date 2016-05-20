@@ -1,3 +1,6 @@
+# Mac files
+*.DS_Store
+
 # Yeoman .gitignore
 /tweet-web/node_modules
 /tweet-web/dist
