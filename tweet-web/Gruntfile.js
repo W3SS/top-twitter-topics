@@ -57,7 +57,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            apiEndpoint: 'http://tweet-microservice.api.com'
+            apiEndpoint: 'http://localhost:4567'
           }
         }
       }
@@ -495,7 +495,6 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'ngconstant:production',
-    'bower-install',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

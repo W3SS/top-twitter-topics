@@ -1,3 +1,6 @@
+# SQLite databases
+/tweet_microservice/db/*.sqlite3
+
 # Mac files
 *.DS_Store
 
